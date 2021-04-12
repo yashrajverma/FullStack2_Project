@@ -4,7 +4,7 @@
   "description": "FullStack2 Project - Instagram Clone",
   "main": "app.js",
   "engines": {
-    "node": ">=14.5.0",
+    "node": ">=10.0.0",
     "npm": ">=6.0.0"
   },
   "scripts": {
