@@ -4,8 +4,8 @@
   "description": "FullStack2 Project - Instagram Clone",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
-    ,"heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ../client && npm run build --prefix client"
+    "start": "node app.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ../folder/client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
