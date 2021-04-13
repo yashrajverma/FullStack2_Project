@@ -64,7 +64,7 @@ const Navbar = () => {
                         {renderList()}
                     </ul>
                 </div>
-                <div id="modal1" className="modal" ref={searchModal} style={{ color: "black", padding: "5px" }}>
+                <div id="modal1" className="modal" ref={searchModal} style={{ color: "black" ,padding:"5px"}}>
                     <div className="modal-content">
                         <input type="text"
                             placeholder="Search Users"
@@ -72,19 +72,16 @@ const Navbar = () => {
                             onChange={(e) => { fetchUsers(e.target.value) }} />
                         <ul className="collection" style={{ width: "100%" }}>
                             {userDetails.map(item => {
-                                return (
-                                    <NavLink to={"/profile/" + item._id} onClick={() => { M.Modal.getInstance(searchModal.current).close() }}>
-                                        <li class="collection-item" style={{ color: "black", width: "100%" }}>
-                                            <div><img src={item.pic} className="round-pic" /></div><h6>{item.name}</h6>
-                                        </li>
-                                    </NavLink>
-                                )
+                               return(<li class="collection-item" style={{ color: "black" }}>
+                                    <div><h5>{item.name}</h5>
+                                    <button type="submit" className="btn waves-effect #2196f3 blue darken-2">follow</button>
+                                </div></li>)
                             })}
 
                         </ul>
                     </div>
                     <div className="modal-footer">
-                        <button className="btn waves-effect #2196f3 blue darken-2" onClick={() => setSearch("")}>Clear</button>
+                        <button className="btn waves-effect #2196f3 blue darken-2" onClick={()=>setSearch("")}>Clear</button>
                     </div>
                 </div>
             </nav>

@@ -94,9 +94,9 @@ routes.put("/updatepic", requireLogin, (req, res) => {
 });
 
 
-routes.post('/search-users',(req,res)=>{
+routes.post('/search-user',(req,res)=>{
   let userPattern=new RegExp("^"+req.body.query)
-  User.find({email:{$regex:userPattern}}).select("_id name email pic").then(user=>{
+  User.find({email:{$regex:userPattern}}).then(user=>{
     res.json({user})
   }).catch(error=>{
     console.log(error);

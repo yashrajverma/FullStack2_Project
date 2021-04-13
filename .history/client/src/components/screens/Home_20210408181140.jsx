@@ -126,7 +126,7 @@ const Home = () => {
                         return (<div className="card home-card" key={item._id}>
                             <div style={{ display: 'flex', justifyContent: "space-between" }}>
                                 <NavLink exact to={`/profile/${item.postedBy._id == state._id ? "" : item.postedBy._id}`}><h5 style={{ padding: "10px", fontWeight: "bold", display: 'flex', flexDirection: "row" }}
-                                ><img src={item.photo} className="round-pic" />{item.postedBy.name}</h5> </NavLink>
+                                ><img src={item.photo} style={{ width: "40px", height: "40px", borderRadius: "50%", marginRight: "13px" }} />{item.postedBy.name}</h5> </NavLink>
                                 {item.postedBy._id == state._id && <i className="material-icons favroite" style={{ float: "right", alignSelf: "center", fontSize: "28px", marginRight: "10px" }} onClick={() => deletePost(item._id)} >delete</i>}
                             </div>
 

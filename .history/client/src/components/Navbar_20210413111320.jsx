@@ -1,37 +1,20 @@
-import React, { useContext, useRef, useEffect, useState } from 'react'
+import React, { useContext,useRef,useEffect,useState } from 'react'
 import { NavLink, useHistory } from 'react-router-dom'
 import { UserContext } from '../App'
 import M from 'materialize-css'
 
 const Navbar = () => {
-    const searchModal = useRef(null)
-    const [search, setSearch] = useState("")
-    const [userDetails, setUserDetails] = useState([])
+    const searchModal=useRef(null)
     const history = useHistory()
     const { state, dispatch } = useContext(UserContext)
-    useEffect(() => {
+    useEffect(()=>{
         M.Modal.init(searchModal.current)
-    }, [])
-    const fetchUsers = (query) => {
-        setSearch(query)
-        fetch('/search-users', {
-            method: "post",
-            headers: { "Content-Type": "application/json" },
-            body:
-                JSON.stringify({ query })
-        }).then(res => res.json()).then(result => {
-            setUserDetails(result.user);
-            console.log(result);
-        }
-        ).catch(err => {
-            console.log(err);
-        })
-    }
+    },[])
     const renderList = () => {
         if (state) {
             return [
-                <li key="1"><i data-target="modal1" className="material-icons modal-trigger"
-                    style={{ cursor: "pointer", color: "black" }}>search</i> </li>,
+                <li key="1"><i data-target="modal1" className="material-icons modal-trigger" 
+                style={{ cursor:"pointer",color: "black" }}>search</i> </li>,
                 <li key="2"><NavLink to="/profile" activeClassName="active-class">Profile</NavLink></li>,
                 <li key="3"><NavLink to="/createpost" activeClassName="active-class">Create Post</NavLink></li>,
                 <li key="4"><NavLink to="/myfollowerspost" activeClassName="active-class">My Following</NavLink></li>,
@@ -64,27 +47,16 @@ const Navbar = () => {
                         {renderList()}
                     </ul>
                 </div>
-                <div id="modal1" className="modal" ref={searchModal} style={{ color: "black", padding: "5px" }}>
+                <div id="modal1" className="modal" ref={searchModal} style={{ color: "black" }}>
                     <div className="modal-content">
-                        <input type="text"
-                            placeholder="Search Users"
-                            value={search}
-                            onChange={(e) => { fetchUsers(e.target.value) }} />
-                        <ul className="collection" style={{ width: "100%" }}>
-                            {userDetails.map(item => {
-                                return (
-                                    <NavLink to={"/profile/" + item._id} onClick={() => { M.Modal.getInstance(searchModal.current).close() }}>
-                                        <li class="collection-item" style={{ color: "black", width: "100%" }}>
-                                            <div><img src={item.pic} className="round-pic" /></div><h6>{item.name}</h6>
-                                        </li>
-                                    </NavLink>
-                                )
-                            })}
+                    <input type="text"
+                    placeholder="Search Users"
+                    value={search}
+                    onChange={(e) => { setSearch(e.target.value) }} />
 
-                        </ul>
                     </div>
                     <div className="modal-footer">
-                        <button className="btn waves-effect #2196f3 blue darken-2" onClick={() => setSearch("")}>Clear</button>
+                        <button  className="modal-close waves-effect waves-green btn-flat">Agree</button>
                     </div>
                 </div>
             </nav>
