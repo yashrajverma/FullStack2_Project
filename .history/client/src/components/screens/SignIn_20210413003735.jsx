@@ -35,7 +35,7 @@ const SignIn = () => {
                     M.toast({ html: "Signed In!", classes: "#43a047 green darken-1" })
                     history.push('/')
                 }
-                console.log("data from react singin",data);
+                console.log(data);
             })
     }
 

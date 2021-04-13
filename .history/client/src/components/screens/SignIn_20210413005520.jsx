@@ -26,6 +26,7 @@ const SignIn = () => {
             res.json())
             .then(data => {
                 if (data.error) {
+                    console.log(data.error);
                     M.toast({ html: data.error, classes: "#c62828 red darken-1" })
 
                 } else {
@@ -35,7 +36,7 @@ const SignIn = () => {
                     M.toast({ html: "Signed In!", classes: "#43a047 green darken-1" })
                     history.push('/')
                 }
-                console.log("data from react singin",data);
+                console.log(data);
             })
     }
 
