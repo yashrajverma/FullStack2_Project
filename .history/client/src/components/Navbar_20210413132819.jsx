@@ -55,15 +55,15 @@ const Navbar = () => {
     }
 
     return (
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <NavLink to={state ? "/" : '/signin'} className="brand-logo m2 text-decoration-none" >Instagram</NavLink>
-            <div class="container-fluid">
 
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <NavLink to={state ? "/" : '/signin'} className="brand-logo m2 text-decoration-none" >Instagram</NavLink>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse bg-light" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
+                <div class="collapse navbar-collapse ml-auto" id="navbarNav">
+                    <ul class="navbar-nav">
                         {renderList()}
                     </ul>
                 </div>
@@ -90,6 +90,8 @@ const Navbar = () => {
                         <button className="btn waves-effect #2196f3 blue darken-2" onClick={() => setSearch("")}>Clear</button>
                     </div>
                 </div>
+
+
             </div>
         </nav>
     )

@@ -55,41 +55,40 @@ const Navbar = () => {
     }
 
     return (
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
             <NavLink to={state ? "/" : '/signin'} className="brand-logo m2 text-decoration-none" >Instagram</NavLink>
-            <div class="container-fluid">
-
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+            <div className="container-fluid">
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse bg-light" id="navbarNav">
-                    <ul class="navbar-nav ml-auto">
+                <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <ul className="navbar-nav ml-auto text-decoration-none">
                         {renderList()}
                     </ul>
-                </div>
-                <div id="modal1" className="modal" ref={searchModal} style={{ color: "black", padding: "5px" }}>
-                    <div className="modal-content">
-                        <input type="text"
-                            placeholder="Search Users"
-                            value={search}
-                            onChange={(e) => { fetchUsers(e.target.value) }} />
-                        <ul className="collection" style={{ width: "100%" }}>
-                            {userDetails.map(item => {
-                                return (
-                                    <NavLink to={"/profile/" + item._id} onClick={() => { M.Modal.getInstance(searchModal.current).close() }}>
-                                        <li className="collection-item" style={{ color: "black", width: "100%" }}>
-                                            <div><img src={item.pic} className="round-pic" /></div><h6>{item.name}</h6>
-                                        </li>
-                                    </NavLink>
-                                )
-                            })}
+                    </div>
+                    <div id="modal1" className="modal" ref={searchModal} style={{ color: "black", padding: "5px" }}>
+                        <div className="modal-content">
+                            <input type="text"
+                                placeholder="Search Users"
+                                value={search}
+                                onChange={(e) => { fetchUsers(e.target.value) }} />
+                            <ul className="collection" style={{ width: "100%" }}>
+                                {userDetails.map(item => {
+                                    return (
+                                        <NavLink to={"/profile/" + item._id} onClick={() => { M.Modal.getInstance(searchModal.current).close() }}>
+                                            <li className="collection-item" style={{ color: "black", width: "100%" }}>
+                                                <div><img src={item.pic} className="round-pic" /></div><h6>{item.name}</h6>
+                                            </li>
+                                        </NavLink>
+                                    )
+                                })}
 
-                        </ul>
+                            </ul>
+                        </div>
+                        <div className="modal-footer">
+                            <button className="btn waves-effect #2196f3 blue darken-2" onClick={() => setSearch("")}>Clear</button>
+                        </div>
                     </div>
-                    <div className="modal-footer">
-                        <button className="btn waves-effect #2196f3 blue darken-2" onClick={() => setSearch("")}>Clear</button>
-                    </div>
-                </div>
             </div>
         </nav>
     )

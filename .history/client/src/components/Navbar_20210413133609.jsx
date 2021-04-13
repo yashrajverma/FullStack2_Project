@@ -32,9 +32,9 @@ const Navbar = () => {
             return [
                 <li key="1" className="nav-item"><i data-target="modal1" className="material-icons modal-trigger"
                     style={{ cursor: "pointer", color: "black" }}>search</i> </li>,
-                <li key="2" className="nav-item"><NavLink to="/profile" activeClassName="active-class">Profile</NavLink></li>,
-                <li key="3" className="nav-item"><NavLink to="/createpost" activeClassName="active-class">Create Post</NavLink></li>,
-                <li key="4" className="nav-item"><NavLink to="/myfollowerspost" activeClassName="active-class">My Following</NavLink></li>,
+                <li key="2" className="nav-item"><NavLink to="/profile" className="nav-link" activeClassName="active-class">Profile</NavLink></li>,
+                <li key="3" className="nav-item"><NavLink to="/createpost" className="nav-link" activeClassName="active-class">Create Post</NavLink></li>,
+                <li key="4" className="nav-item"><NavLink to="/myfollowerspost" className="nav-link" activeClassName="active-class">My Following</NavLink></li>,
                 <li key="5" className="nav-item">
                     <button className="btn #c62828 red darken-3" onClick={() => {
                         localStorage.clear()
@@ -48,8 +48,8 @@ const Navbar = () => {
             ]
         } else {
             return [
-                <li key="6" className="nav-item"><NavLink to="/signin" activeClassName="active-class" >SignIn</NavLink></li>,
-                <li key="7" className="nav-item"><NavLink to="/signup" activeClassName="active-class">SignUp</NavLink></li>
+                <li key="6" className="nav-item"><NavLink to="/signin" className="nav-link" activeClassName="active-class" >SignIn</NavLink></li>,
+                <li key="7" className="nav-item"><NavLink to="/signup"className="nav-link"  activeClassName="active-class">SignUp</NavLink></li>
             ]
         }
     }
@@ -62,7 +62,7 @@ const Navbar = () => {
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse bg-light" id="navbarNav">
+                <div class="collapse navbar-collapse " id="navbarNav">
                     <ul class="navbar-nav ml-auto">
                         {renderList()}
                     </ul>
@@ -90,6 +90,8 @@ const Navbar = () => {
                         <button className="btn waves-effect #2196f3 blue darken-2" onClick={() => setSearch("")}>Clear</button>
                     </div>
                 </div>
+
+
             </div>
         </nav>
     )
